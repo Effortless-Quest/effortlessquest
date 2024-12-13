@@ -5,7 +5,6 @@
 import Navigation from './0/1-3-0-quest-nav/navigation'; //Navigation Bar Import
 import Footer from './0/0-footer/footer'; // Import Footer
 import CustomCursor from './0/0-cursor/page'; // Cursor Import
-import { useState, useEffect } from 'react';
 import UnderConstruction from './0/0-UnderConstruction/UnderConstruction';
 
 
@@ -13,21 +12,6 @@ import UnderConstruction from './0/0-UnderConstruction/UnderConstruction';
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false); // State to track mobile view
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  {/* Screen View Handling */}
-////////////////////////////////////////
-  useEffect(() => {
-    const updateScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768); // Set to true if width is 768px or less
-    };
-    updateScreenSize(); // Run on mount
-    window.addEventListener("resize", updateScreenSize); // Listen for resize events
-    return () => window.removeEventListener("resize", updateScreenSize); // Cleanup
-  }, []);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
