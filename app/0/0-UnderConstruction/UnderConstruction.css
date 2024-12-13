@@ -1,0 +1,191 @@
+.floating-card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 5px solid #333;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #1c0e45;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
+  margin-bottom: 200px;
+  overflow: hidden;
+  height: 350px;
+  margin-top: -50px;
+}
+
+.floating-card:hover {
+  border-color: #fef74b;
+}
+
+.construction-container {
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background: linear-gradient(to top, #87CEEB, #00BFFF); /* Sky blue gradient */
+  position: relative;
+  overflow: hidden;
+  height: 200px; /* Adjust height */
+  border-radius: 15px; /* Adjust the value to make the edges more or less rounded */
+}
+
+.swords-container {
+  position: absolute;
+  top: -200px; /* Start the swords off-screen (from the top of the container) */
+  width: 100%;
+  height: 50px; /* Match the height of the sword images */
+  display: flex;
+  display: flex;
+  justify-content: space-around;
+  z-index: 1;
+}
+
+.sword {
+  width: 150px;
+  height: 250px;
+  position: absolute;
+  animation: fall 5s ease-in-out infinite; /* Only fall animation here */
+  object-fit: contain;
+  animation-iteration-count: 1; 
+}
+
+
+.sword1 {
+  animation-delay: 0s,0s;
+}
+
+.sword2 {
+  animation-delay: 5s,0s;
+}
+
+.sword3 {
+  animation-delay: 10s,0s;
+}
+
+.sword4 {
+  animation-delay: 15s,0s;
+}
+
+@keyframes fall {
+  0% {
+    top: -150px; /* Start from above the container */
+  }
+  50% {
+    top: 200px; /* Halfway down the container */
+  }
+  100% {
+    top: 800px; /* End at the bottom of the container */
+  }
+}
+
+.sword img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: shimmer 1.5s infinite alternate; /* Shimmer on the image */
+}
+
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* White shine */
+  }
+  50% {
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1); /* Stronger white shine */
+  }
+  100% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* Back to the initial shine */
+  }
+}
+
+
+.grass-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.grass-background-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+.grass {
+  width: 2%;
+  height: 50px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 22px solid #228B22;
+  animation: sway 3s ease-in-out infinite;
+  margin-bottom: -5px;
+}
+
+.grass-background {
+  width: 2%;
+  height: 60px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 24px solid #006400;
+  animation: swayBackground 4s ease-in-out infinite;
+  margin-bottom: -3px;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes swayBackground {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+
+.grass-base {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #004d00;
+  z-index: 1;
+}
+
+.message {
+  font-size: 1.0rem;
+  color: #efe1ff;
+  margin-top: 20px;
+  margin-left: -4px;
+  position: absolute;
+  top: 20px;
+  width: 90%;
+  text-align: center;
+  z-index: 0;
+}

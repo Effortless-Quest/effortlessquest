@@ -3,19 +3,94 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #504081; /* Light background */
+  --foreground: #333; /* Dark text */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #504081;
+    --foreground: #333;
   }
 }
+
+
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', sans-serif; /* Set 'Nunito' as the primary font */
+  cursor: none; /* Hide the default cursor */
+}
+
+/* Override the cursor style for all links */
+a {
+  cursor: none !important; /* Prevent default cursor when hovering over links */
+}
+
+.main-content {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.main-content h2 {
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Styling for the specific text */
+.text-hover-grow {
+  display: inline-block; /* Required for transform to work */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.text-hover-grow:hover {
+  transform: scale(1.1); /* Scales the text to 110% */
+}
+
+/* Reusable hover color change effect */
+.text-hover-yellow {
+  transition: color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.text-hover-yellow:hover {
+  color: #fef74b; /* Yellow color */
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  background-color: #fef74b;
+  color: #333;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #ccc61f; /* Dark purple border */
+  margin-right: 10px; /* Add space to the right */
+}
+
+.btn-primary:hover {
+  background-color: #504081;
+  color: #fef74b;
+}
+
+.btn-secondary {
+  padding: 12px 24px;
+  background-color: #504081;
+  color: #fef74b;
+  font-weight: bold;
+  border: 2px solid #fef74b;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #fef74b;
+  color: #333;
 }
