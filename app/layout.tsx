@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Effortless Quest⚔️",
+  title: "Effortless⚔️Quest",
   description: "Gamify Your Tasks Effortlessly",
 };
 
