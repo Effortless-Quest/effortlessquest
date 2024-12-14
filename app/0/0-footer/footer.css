@@ -64,8 +64,8 @@
 
 /* Effortless Works Card */
 .effortless-card {
-  background-color: #504081; /* Dark purple background */
-  color: #efe1ff; /* Light purple text color */
+  background-color:rgb(56, 177, 54); /* Dark purple background */
+  color:rgb(16, 19, 17); /* Light purple text color */
   border: 7px solid transparent; /* Default border */
   transition: background-color 0.3s ease, border-color 0.3s ease;
   width: 100%; /* Take up full width of its parent container */
@@ -77,12 +77,12 @@
 
 
 .effortless-card:hover {
-  border-color: #efe1ff; /* Light purple border on hover */
+  border-color: #fff; /* Light purple border on hover */
   animation: spinShake 0.5s ease-in-out;
 }
 
 .effortless-card .footer-link {
-  color: #fef74b; /* Default link color (yellow) */
+  color:rgb(255, 255, 255); /* Default link color (yellow) */
   margin: 5px 0; /* Space between links */
   margin-left: -2px;
   text-decoration: none;

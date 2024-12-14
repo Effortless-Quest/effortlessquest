@@ -67,7 +67,7 @@ a, button, .interactive {
 
 /* Styling the scrollbar track (the part the thumb slides within) */
 ::-webkit-scrollbar-track {
-  background-color: #504081; /* Light grey background for the track */
+  background-color: #8958f1; /* Light grey background for the track */
   border-radius: 10px; /* Optional: rounded corners for the track */
   z-index: 20;
 }
