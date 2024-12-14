@@ -51,3 +51,31 @@ a, button, .interactive {
   height: 30px; /* Larger size */
 }
 
+
+/* Styling the entire scrollbar */
+::-webkit-scrollbar {
+  width: 15px; /* Makes the scrollbar thin (you can adjust this value) */
+  height: 15px; /* If you want to change the height of horizontal scrollbars */
+}
+
+/* Styling the scrollbar thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Greyish color */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 20;
+}
+
+/* Styling the scrollbar track (the part the thumb slides within) */
+::-webkit-scrollbar-track {
+  background-color: #504081; /* Light grey background for the track */
+  border-radius: 10px; /* Optional: rounded corners for the track */
+  z-index: 20;
+}
+
+/* Optional: Styling the scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker grey when hovering */
+  z-index: 20;
+}
+
+

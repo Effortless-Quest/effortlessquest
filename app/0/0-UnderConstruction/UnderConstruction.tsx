@@ -59,10 +59,10 @@ const UnderConstruction: React.FC = () => {
           {foregroundGrassBlades}
         </div>
         <div className="swords-container">
-          <Image className="sword sword1" src="/sword1.svg" alt="Sword 1" width={100} height={100} />
-          <Image className="sword sword2" src="/sword2.svg" alt="Sword 2" width={100} height={100} />
-          <Image className="sword sword3" src="/sword3.svg" alt="Sword 3" width={100} height={100} />
-          <Image className="sword sword4" src="/sword4.svg" alt="Sword 4" width={100} height={100} />
+          <Image className="sword sword1" src="/swords/sword1.svg" alt="Sword 1" width={100} height={100} />
+          <Image className="sword sword2" src="/swords/sword2.svg" alt="Sword 2" width={100} height={100} />
+          <Image className="sword sword3" src="/swords/sword3.svg" alt="Sword 3" width={100} height={100} />
+          <Image className="sword sword4" src="/swords/sword4.svg" alt="Sword 4" width={100} height={100} />
         </div>
         <div className="grass-base"></div> {/* Dark green base at the bottom */}
       </div>
