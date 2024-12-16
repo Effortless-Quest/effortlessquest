@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
     <header className="header">
-      <Link href="https://www.elifcakmak.blog/" className="logo-link2">
+      <Link href="/" className="logo-link2">
         <Image src="/nav-titles/quest-nav.svg" alt="Elif Çakmak Logo" width={200} height={200}  />
       </Link>
       <nav className="nav">
