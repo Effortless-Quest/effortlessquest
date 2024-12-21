@@ -1,11 +1,12 @@
 "use client"; // Required for client-side rendering
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged, // Added import here
 } from "firebase/auth";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { auth } from "../../../firebaseConfig";
@@ -21,6 +22,16 @@ export default function Home() {
   const [isRegister, setIsRegister] = useState(false);
   const [error, setError] = useState("");
 
+  // UseEffect hook to check auth state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.push("/000002/townhall"); // Redirect to the townhall page if logged in
+      }
+    });
+    return () => unsubscribe(); // Cleanup listener
+  }, [router]);
+
   // Handle Email/Password Authentication
   const handleAuth = async () => {
     try {
@@ -35,9 +46,9 @@ export default function Home() {
       setEmail("");
       setPassword("");
       setError("");
-    } catch (err: unknown) { // Use 'unknown' instead of 'any'
+    } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message); // Log the error message if 'err' is an instance of Error
+        setError(err.message);
       } else {
         setError("An error occurred. Please try again.");
       }
@@ -53,7 +64,7 @@ export default function Home() {
       router.push("/000002/townhall"); // Redirect to the dashboard page
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message); // Log the error message if 'err' is an instance of Error
+        setError(err.message);
       } else {
         setError("Failed to sign in with Google. Please try again.");
       }
@@ -62,11 +73,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* Cursor, Navigation, Footer */}
       <CustomCursor />
       <Navigation />
       <div className="home-container">
-        {/* Floating Cards */}
         <div className="auth-wrapper">
           <div className="auth-card">
             <h1>{isRegister ? "Register" : "Login"}</h1>
