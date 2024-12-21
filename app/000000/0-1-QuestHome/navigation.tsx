@@ -41,56 +41,56 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
         <div className={styles.dropdown}>
           <ul className={styles.dropdownMenu}>
             <li>
-              <Link href="/000002/townhall">
+              <Link href="/000002/townhall" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Town Hall
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/myquest">
+              <Link href="/000002/myquest" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   My Quest
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/leaderboards">
+              <Link href="/000002/leaderboards" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Leaderboards
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/inventioncenter">
+              <Link href="/000002/inventioncenter" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Invention Center
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/myteam">
+              <Link href="/000002/myteam" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   My Team
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/businesscenter">
+              <Link href="/000002/businesscenter" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Business Center
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/educationcenter">
+              <Link href="/000002/educationcenter" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Education Center
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/charitycenter">
+              <Link href="/000002/charitycenter" legacyBehavior>
                 <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Charity Center
                 </a>
