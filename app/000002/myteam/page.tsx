@@ -1,6 +1,5 @@
 "use client"; // Add this directive to make this a client component
 
-import { useState } from "react";
 import CustomCursor from "../../000000/0-0-cursor/page";
 import QuestNavigation from "../../000000/0-1-QuestHome/navigation";
 import Footer from "../../000000/0-0-footer/footer";
