@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic"; // Dynamically import the router to ensure it's only available on the client
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
 import Link from "next/link"; // Import Link for client-side navigation
@@ -16,7 +16,6 @@ interface DropdownMenuProps {
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [router, setRouter] = useState<any>(null); // Store the router
 
   // Handle the opening and closing of the dropdown menu
   const handleButtonClick = () => {
@@ -37,17 +36,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
     handleButtonClick(); // Close the dropdown after logout
   };
 
-  // Generic function to handle link click (close dropdown and navigate)
-  const handleLinkClick = (href: string) => {
-    handleButtonClick(); // Close the dropdown
-  };
-
-  // Set isClient to true once the component is mounted
-  useEffect(() => {
-    const routerInstance = DynamicRouter(); // Initialize the router dynamically
-    setRouter(routerInstance); // Store the router instance
-  }, []);
-
   return (
     <nav>
       <button className={styles.dropdownButton} onClick={handleButtonClick}>
@@ -57,59 +45,59 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
         <div className={styles.dropdown}>
           <ul className={styles.dropdownMenu}>
             <li>
-              <Link href="/000002/townhall" passHref>
-                <button onClick={() => handleLinkClick("/000002/townhall")} className={styles.dropdownLink}>
+              <Link href="/000002/townhall">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Town Hall
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/myquest" passHref>
-                <button onClick={() => handleLinkClick("/000002/myquest")} className={styles.dropdownLink}>
+              <Link href="/000002/myquest">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   My Quest
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/leaderboards" passHref>
-                <button onClick={() => handleLinkClick("/000002/leaderboards")} className={styles.dropdownLink}>
+              <Link href="/000002/leaderboards">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Leaderboards
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/inventioncenter" passHref>
-                <button onClick={() => handleLinkClick("/000002/inventioncenter")} className={styles.dropdownLink}>
+              <Link href="/000002/inventioncenter">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Invention Center
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/myteam" passHref>
-                <button onClick={() => handleLinkClick("/000002/myteam")} className={styles.dropdownLink}>
+              <Link href="/000002/myteam">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   My Team
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/businesscenter" passHref>
-                <button onClick={() => handleLinkClick("/000002/businesscenter")} className={styles.dropdownLink}>
+              <Link href="/000002/businesscenter">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Business Center
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/educationcenter" passHref>
-                <button onClick={() => handleLinkClick("/000002/educationcenter")} className={styles.dropdownLink}>
+              <Link href="/000002/educationcenter">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Education Center
-                </button>
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/000002/charitycenter" passHref>
-                <button onClick={() => handleLinkClick("/000002/charitycenter")} className={styles.dropdownLink}>
+              <Link href="/000002/charitycenter">
+                <a className={styles.dropdownLink} onClick={handleButtonClick}>
                   Charity Center
-                </button>
+                </a>
               </Link>
             </li>
             {/* Add logout button */}
