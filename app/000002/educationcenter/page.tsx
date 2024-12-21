@@ -8,14 +8,8 @@ import UnderConstruction from "../../000000/0-0-UnderConstruction/UnderConstruct
 import ProtectedRoute from "../../000000/1-0-ProtectedRoute/ProtectedRoute"; // Make sure you import your ProtectedRoute component
 
 export default function EducationCenterPage() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => {
-      const newState = !prevState;
-      document.body.classList.toggle("openDropdown", newState); // Toggle class based on the new state
-      return newState;
-    });
+    document.body.classList.toggle("openDropdown"); // Simply toggle the class without needing the state
   };
 
   return (

@@ -7,15 +7,9 @@ import Footer from "../../000000/0-0-footer/footer";
 import UnderConstruction from "../../000000/0-0-UnderConstruction/UnderConstruction"; // Import the new component
 import ProtectedRoute from "../../000000/1-0-ProtectedRoute/ProtectedRoute"; // Make sure you import your ProtectedRoute component
 
-export default function MyQyestPage() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+export default function MyQuestPage() {
   const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => {
-      const newState = !prevState;
-      document.body.classList.toggle("openDropdown", newState); // Toggle class based on the new state
-      return newState;
-    });
+    document.body.classList.toggle("openDropdown"); // Simply toggle the class without needing the state
   };
 
   return (

@@ -1,14 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
 import Link from "next/link"; // Import Link for client-side navigation
 import styles from "./navigation.module.css";
-
-// Dynamically import the useRouter hook from Next.js
-const DynamicRouter = dynamic(() => import("next/router").then((mod) => mod.useRouter), { ssr: false });
 
 interface DropdownMenuProps {
   toggleDropdown: () => void;

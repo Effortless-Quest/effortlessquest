@@ -35,8 +35,12 @@ export default function Home() {
       setEmail("");
       setPassword("");
       setError("");
-    } catch (err: any) {
-      setError("An error occurred. Please try again.");
+    } catch (err: unknown) { // Use 'unknown' instead of 'any'
+      if (err instanceof Error) {
+        setError(err.message); // Log the error message if 'err' is an instance of Error
+      } else {
+        setError("An error occurred. Please try again.");
+      }
     }
   };
 
@@ -47,8 +51,12 @@ export default function Home() {
       await signInWithPopup(auth, provider);
       alert("Login with Google successful!");
       router.push("/000002/townhall"); // Redirect to the dashboard page
-    } catch (err: any) {
-      setError("Failed to sign in with Google. Please try again.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message); // Log the error message if 'err' is an instance of Error
+      } else {
+        setError("Failed to sign in with Google. Please try again.");
+      }
     }
   };
 
