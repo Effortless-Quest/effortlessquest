@@ -1,9 +1,9 @@
 "use client"; // Add this directive to make this a client component
 
-import CustomCursor from '../../0/0-cursor/page';
-import Navigation from '../../0/1-3-0-quest-nav/navigation';
-import Footer from '../../0/0-footer/footer'
-import UnderConstruction from '../../0/0-UnderConstruction/UnderConstruction'; // Import the new component
+import CustomCursor from '../../000000/0-0-cursor/page';
+import Navigation from '../../000000/0-0-navigation/navigation';
+import Footer from '../../000000/0-0-footer/footer'
+import UnderConstruction from '../../000000/0-0-UnderConstruction/UnderConstruction'; // Import the new component
 
 export default function Home() {
 

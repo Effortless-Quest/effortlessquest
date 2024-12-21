@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import { Geist, Geist_Mono } from "next/font/google";
+import { UserProvider } from "./000000/1-0-UserContext/UserContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,11 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Effortless⚔️Quest",
-  description: "Gamify Your Tasks Effortlessly",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <UserProvider>
+          <main>{children}</main>
+        </UserProvider>
       </body>
     </html>
   );

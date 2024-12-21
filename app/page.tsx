@@ -2,10 +2,10 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 "use client"; //makes this a client component
 
-import Navigation from './0/1-3-0-quest-nav/navigation'; //Navigation Bar Import
-import Footer from './0/0-footer/footer'; // Import Footer
-import CustomCursor from './0/0-cursor/page'; // Cursor Import
-import UnderConstruction from './0/0-UnderConstruction/UnderConstruction';
+import Navigation from './000000/0-0-navigation/navigation'; //Navigation Bar Import
+import Footer from './000000/0-0-footer/footer'; // Import Footer
+import CustomCursor from './000000/0-0-cursor/page'; // Cursor Import
+import UnderConstruction from './000000/0-0-UnderConstruction/UnderConstruction';
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

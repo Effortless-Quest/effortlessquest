@@ -94,3 +94,25 @@ a {
   background-color: #fef74b;
   color: #333;
 }
+
+/* globals.css or another CSS file */
+.openDropdown {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.openDropdown main {
+  transform: translateX(-250px); /* Move the content to the left */
+  transition: transform 0.3s ease-in-out;
+}
+
+.openDropdown .dropdown {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px; /* Width of the dropdown */
+  height: 100%;
+  background-color: #fff; /* Or any color you want */
+  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+

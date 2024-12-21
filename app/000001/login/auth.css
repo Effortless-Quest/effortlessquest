@@ -1,0 +1,65 @@
+.home-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+  }
+  
+  .auth-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .auth-card, .google-auth-card {
+    position: relative;
+    background-color: white;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .auth-card h1, .google-auth-card h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .auth-card input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .auth-card button, .google-signin-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .auth-card button:hover, .google-signin-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .google-signin-btn {
+    background-color: #4285f4;
+  }
+  
+  .google-signin-btn:hover {
+    background-color: #357ae8;
+  }
+  
+  .google-signin-btn:active {
+    background-color: #2c63bf;
+  }
+  
