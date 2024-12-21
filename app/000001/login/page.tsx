@@ -85,12 +85,14 @@ export default function Home() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="cursor-none"
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="cursor-none"
             />
             <button onClick={handleAuth}>{isRegister ? "Register" : "Login"}</button>
             <button onClick={() => setIsRegister(!isRegister)}>
