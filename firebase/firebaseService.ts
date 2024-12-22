@@ -1,5 +1,12 @@
 import { db, auth } from './firebaseConfig';
-import { collection, addDoc, getDocs, doc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, getDocs, Timestamp } from 'firebase/firestore';
+
+// Define the StickyNote interface
+interface StickyNote {
+  id: string;
+  text: string;
+  createdAt: Timestamp;
+}
 
 // Function to add a new sticky note for the currently logged-in user
 export const addStickyNoteToFirebase = async (text: string) => {
@@ -22,7 +29,7 @@ export const addStickyNoteToFirebase = async (text: string) => {
 };
 
 // Function to get all sticky notes for the currently logged-in user
-export const getStickyNotes = async () => {
+export const getStickyNotes = async (): Promise<StickyNote[]> => {
   const userId = auth.currentUser?.uid;
 
   if (userId) {
@@ -33,11 +40,14 @@ export const getStickyNotes = async () => {
     const querySnapshot = await getDocs(stickyNotesRef);
     
     // Process and return the sticky notes
-    const notes = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    console.log(notes);
+    const notes: StickyNote[] = querySnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        text: data.text,
+        createdAt: data.createdAt instanceof Timestamp ? data.createdAt : Timestamp.now(),
+      };
+    });
     
     return notes;
   } else {

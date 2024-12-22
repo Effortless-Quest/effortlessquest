@@ -30,15 +30,7 @@ export default function MyQuestPage() {
       setLoading(true);
       try {
         const notes = await getStickyNotes(); // Fetch sticky notes for the current user
-
-        // Map the fetched notes to match the StickyNote type
-        const formattedNotes = notes.map((note: any) => ({
-          id: note.id,
-          text: note.text, // Ensure `text` exists in the note
-          createdAt: note.createdAt || Timestamp.now(), // Handle createdAt field
-        }));
-
-        setStickyNotes(formattedNotes); // Set the formatted notes to state
+        setStickyNotes(notes); // Set the fetched sticky notes
       } catch (error) {
         console.error("Error fetching sticky notes:", error);
       } finally {
@@ -58,15 +50,7 @@ export default function MyQuestPage() {
 
         // Refresh the sticky notes after adding a new one
         const notes = await getStickyNotes();
-
-        // Map the fetched notes to match the StickyNote type
-        const formattedNotes = notes.map((note: any) => ({
-          id: note.id,
-          text: note.text,
-          createdAt: note.createdAt || Timestamp.now(),
-        }));
-
-        setStickyNotes(formattedNotes);
+        setStickyNotes(notes);
 
         // Clear the input field
         setNewNote('');
