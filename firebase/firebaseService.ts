@@ -95,13 +95,14 @@ export const updateStickyNoteInFirebase = async (id: string, newTitle: string, n
 
   if (userId) {
     try {
-      // Reference to the specific sticky note document
+      // Reference to the specific sticky note document in Firestore
       const stickyNoteRef = doc(db, 'users', userId, 'stickyNotes', id);
       
       // Update the sticky note document with both title and text
       await updateDoc(stickyNoteRef, {
         title: newTitle,
         text: newText,
+        updatedAt: Timestamp.now() // You may want to track when the note was last updated
       });
 
       console.log('Sticky note updated successfully!');
@@ -112,3 +113,4 @@ export const updateStickyNoteInFirebase = async (id: string, newTitle: string, n
     console.error('No user is logged in');
   }
 };
+
