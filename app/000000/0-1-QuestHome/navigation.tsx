@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../firebaseConfig";
+import { auth } from "../../../firebase/firebaseConfig";
 import Link from "next/link"; // Import Link for client-side navigation
+import Image from "next/image";
 import styles from "./navigation.module.css";
 
 interface DropdownMenuProps {
@@ -33,79 +34,102 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
   };
 
   return (
-    <nav>
-      <button className={styles.dropdownButton} onClick={handleButtonClick}>
-        Menu
-      </button>
-      {isOpen && (
-        <div className={styles.dropdown}>
-          <ul className={styles.dropdownMenu}>
-            <li>
-              <Link href="/000002/townhall" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Town Hall
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/myquest" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  My Quest
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/leaderboards" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Leaderboards
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/inventioncenter" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Invention Center
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/myteam" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  My Team
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/businesscenter" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Business Center
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/educationcenter" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Education Center
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/000002/charitycenter" legacyBehavior>
-                <a className={styles.dropdownLink} onClick={handleButtonClick}>
-                  Charity Center
-                </a>
-              </Link>
-            </li>
-            {/* Add logout button */}
-            <li>
-              <button className={styles.logoutButton} onClick={handleLogout}>
-                Log Out
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
-    </nav>
+    <div className="header">
+      <Link href="/" className="logo-link2">
+        <Image src="/nav-titles/quest-nav.svg" alt="Elif Çakmak Logo" width={200} height={200} className={styles.questImage}/>
+      </Link>
+      <nav>
+        <button className={styles.dropdownButton} onClick={handleButtonClick}>
+          Menu
+        </button>
+        {isOpen && (
+          <div className={styles.dropdown}>
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/townhall" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Town Hall
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/myquest" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      My Quest
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/leaderboards" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Leaderboards
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/inventioncenter" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Invention Center
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/myteam" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      My Team
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/businesscenter" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Business Center
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/educationcenter" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Education Center
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              <li>
+                <div className={styles.card}>
+                  <Link href="/000002/charitycenter" legacyBehavior>
+                    <a className={styles.dropdownLink} onClick={handleButtonClick}>
+                      Charity Center
+                    </a>
+                  </Link>
+                </div>
+              </li>
+              {/* Logout Button */}
+              <li>
+                <div className={styles.card}>
+                  <button className={styles.dropdownLink} onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        )}
+      </nav>
+    </div>
   );
 };
 

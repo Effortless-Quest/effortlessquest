@@ -9,7 +9,7 @@ import {
   onAuthStateChanged, // Added import here
 } from "firebase/auth";
 import { useRouter } from "next/navigation"; // Import useRouter
-import { auth } from "../../../firebaseConfig";
+import { auth } from "../../../firebase/firebaseConfig";
 import "./auth.css";
 import CustomCursor from "../../000000/0-0-cursor/page";
 import Navigation from "../../000000/0-0-navigation/navigation";

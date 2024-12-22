@@ -1,4 +1,19 @@
 /* app/components/DropdownMenu.module.css */
+
+.header {
+  background-color: #1c0e45; 
+  display: flex;
+  box-shadow: 0 2px 5px #4bfe5a;
+  padding: 20px 40px;
+  justify-content: space-between;
+  align-items: center; 
+  flex-wrap: wrap;
+}
+
+.questImage {
+  transform: translateX(-300px);
+}
+
 .dropdown {
   position: fixed;
   top: 20px;
@@ -26,11 +41,11 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #8958f1;
+  color:  #fef74b;
   padding: 10px 20px;
   border: none;
-  cursor: pointer;
+  margin-top: 80px;
   font-size: 16px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -38,7 +53,7 @@
 }
 
 .dropdownButton:hover {
-  background-color: #0056b3;
+  background-color:rgb(170, 143, 230);
 }
 
 .dropdown {
@@ -47,7 +62,7 @@
   right: 0;
   width: 40%; /* Adjust the width to be less than half of the screen */
   height: 100vh;
-  background-color: white;
+  background-color: rgb(10, 10, 10);
   border-left: 1px solid #ccc;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -75,16 +90,12 @@
 
 .dropdownMenu li a {
   text-decoration: none;
-  color: #333;
+  color:rgb(242, 246, 242);
   font-size: 18px;
 }
 
-.dropdownMenu li:hover {
-  background-color: #f0f0f0;
-}
-
 .dropdownMenu li a:hover {
-  color: #007bff;
+  
 }
 
 
@@ -92,4 +103,30 @@ body.openDropdown {
   overflow: hidden; /* Prevent scrolling when the dropdown is open */
   transform: translateX(-40%); /* Push content to the left */
   transition: transform 0.3s ease-in-out;
+}
+
+/* Default style for each "card" */
+.card {
+  width: 200px;
+  padding: 8px 16px;
+  border-radius: 8px; /* Rounded corners */
+  display: inline-block; /* To wrap the link */
+}
+
+/* Style for the link */
+.dropdownLink {
+  text-decoration: none;
+  color: white; /* Adjust to your link color */
+  display: block;
+}
+
+/* Hover effect for each "card" */
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background */
+}
+
+/* Optional: Add focus styles for accessibility */
+.card:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.4); /* Slightly different color on focus */
 }

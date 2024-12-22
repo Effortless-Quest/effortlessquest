@@ -1,7 +1,7 @@
 "use client"; // Mark this file as a client component
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../../../firebaseConfig';
+import { auth } from '../../../firebase/firebaseConfig';
 import { onAuthStateChanged, User } from 'firebase/auth'; // Import User type
 
 // Define the user context type
