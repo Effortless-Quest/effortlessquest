@@ -7,8 +7,8 @@
 }
 
 .add-sticky-note-btn {
-    background-color: #f4a261; /* Color for the button */
-    color: white;
+    background-color: rgb(39, 125, 46); /* Button color */
+    color: white; /* Text color */
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
@@ -17,25 +17,29 @@
 }
 
 .add-sticky-note-btn:hover {
-    background-color: #e76f51; /* Hover effect */
+    background-color: rgb(55, 183, 66); /* Hover effect */
 }
 
 /* Sticky Note Title Input */
 .sticky-note-title-input {
+    background-color: rgb(0, 0, 0);
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ddd;
     margin-bottom: 10px;
     font-size: 16px;
     font-family: Arial, sans-serif;
+    color: white;
+    cursor: none;
 }
 
 /* Sticky Note Input */
 .sticky-note-input {
+    background-color: rgb(0, 0, 0);
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     height: 100px;
     padding: 10px;
     border-radius: 8px;
@@ -43,7 +47,9 @@
     margin-bottom: 20px;
     font-size: 16px;
     font-family: Arial, sans-serif;
+    color: white;
     resize: none;
+    cursor: none;
 }
 
 /* Sticky Notes Container */
@@ -59,7 +65,7 @@
 
 /* Writing Sticky Note Section */
 .write-sticky-note-container {
-    background-color: #fff;
+    background-color: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -68,45 +74,50 @@
 .write-sticky-note-container h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: white;
 }
 
 /* View Sticky Notes Section */
 .view-sticky-notes-container {
-    background-color: #fff;
+    background-color: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
+    color: white;
 }
 
 /* Sticky Note Display */
 .sticky-note {
-    background-color: #f9f9f9; /* Light gray background for sticky note */
+    background-color: rgb(45, 46, 45); /* Light gray background */
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Small shadow for each note */
-    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: none;
     transition: transform 0.3s ease;
+    color: white;
 }
 
 .sticky-note h3 {
     font-size: 18px;
     margin: 0 0 5px 0;
+    color: white;
 }
 
 .sticky-note p {
     font-size: 16px;
     margin: 0;
+    color: white;
 }
 
 .sticky-note small {
     font-size: 12px;
-    color: gray;
+    color: white;
 }
 
 .sticky-note button {
-    background-color: #f4a261;
+    background-color: rgb(39, 125, 46);
     color: white;
     padding: 5px 10px;
     border-radius: 8px;
@@ -116,10 +127,10 @@
 }
 
 .sticky-note button:hover {
-    background-color: #e76f51;
+    background-color: rgb(55, 183, 66);
 }
 
-/* Full Page Text Editor (when sticky note is clicked) */
+/* Full Page Text Editor */
 .sticky-note-expanded {
     position: fixed;
     top: 0;
@@ -132,19 +143,23 @@
     justify-content: center;
     z-index: 1000;
     padding: 20px;
+    cursor: none;
 }
 
 .sticky-note-expanded .editor-container {
-    background-color: #fff;
+    background-color: rgb(0, 0, 0);
     width: 80%;
     height: 80%;
+    border: 5px solid #4bfe5a;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between title and content */
+    gap: 10px;
+    color: white;
+    cursor: none;
 }
 
 .sticky-note-expanded .editor-container textarea {
@@ -156,6 +171,7 @@
     border-radius: 8px;
     border: 1px solid #ddd;
     resize: none;
+    color: white;
 }
 
 .sticky-note-expanded .editor-container input {
@@ -165,11 +181,12 @@
     font-family: Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid #ddd;
+    color: white;
 }
 
 /* Add padding between buttons and inputs in the editor */
 .sticky-note-expanded .editor-container button {
-    background-color: #f4a261;
+    background-color: rgb(39, 125, 46);
     color: white;
     padding: 10px;
     border-radius: 8px;
@@ -179,5 +196,25 @@
 }
 
 .sticky-note-expanded .editor-container button:hover {
-    background-color: #e76f51;
+    background-color: rgb(55, 183, 66);
+}
+
+/* Delete Button - Red */
+.sticky-note-expanded .editor-container button.delete-btn {
+    background-color: rgb(255, 0, 0); /* Red background */
+    color: white; /* White text */
+}
+
+.sticky-note-expanded .editor-container button.delete-btn:hover {
+    background-color: rgb(220, 0, 0); /* Darker red on hover */
+}
+
+/* Close Editor Button - Grey */
+.sticky-note-expanded .editor-container button.close-btn {
+    background-color: rgb(128, 128, 128); /* Grey background */
+    color: white; /* White text */
+}
+
+.sticky-note-expanded .editor-container button.close-btn:hover {
+    background-color: rgb(169, 169, 169); /* Lighter grey on hover */
 }

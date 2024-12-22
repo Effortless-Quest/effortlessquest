@@ -167,13 +167,24 @@ const StickyNotes = () => {
                       placeholder="Edit your sticky note..."
                     />
                     <div>
-                      <button onClick={handleUpdateStickyNote} className="add-sticky-note-btn">
+                      <button
+                        onClick={handleUpdateStickyNote}
+                        className="add-sticky-note-btn"
+                        disabled={loading || !editedText.trim() || !editedTitle.trim()}
+                      >
                         {loading ? "Updating..." : "Update Note"}
                       </button>
-                      <button onClick={() => handleDeleteStickyNote(note.id)} className="add-sticky-note-btn">
+                      <button
+                        onClick={() => handleDeleteStickyNote(note.id)}
+                        className="delete-btn"
+                        disabled={loading}
+                      >
                         {loading ? "Deleting..." : "Delete Note"}
                       </button>
-                      <button onClick={closeStickyNoteEditor} className="add-sticky-note-btn">
+                      <button
+                        onClick={closeStickyNoteEditor}
+                        className="close-btn"
+                      >
                         Close Editor
                       </button>
                     </div>
