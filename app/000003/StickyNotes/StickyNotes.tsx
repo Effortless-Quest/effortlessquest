@@ -58,15 +58,6 @@ const StickyNotes = () => {
     }
   };
 
-  const handleEditStickyNote = async (id: string) => {
-    setEditingNoteId(id);
-    const note = stickyNotes.find((note) => note.id === id);
-    if (note) {
-      setEditedTitle(note.title);
-      setEditedText(note.text);
-    }
-  };
-
   const handleUpdateStickyNote = async () => {
     if (editedTitle.trim() && editedText.trim()) {
       setLoading(true);
@@ -101,6 +92,11 @@ const StickyNotes = () => {
   // Function to handle opening the sticky note in a full-page editor
   const openStickyNoteEditor = (id: string) => {
     setExpandedNoteId(id);
+    const note = stickyNotes.find((note) => note.id === id);
+    if (note) {
+      setEditedTitle(note.title);
+      setEditedText(note.text);
+    }
   };
 
   // Close the editor by resetting the expanded note
@@ -149,6 +145,7 @@ const StickyNotes = () => {
               key={note.id}
               className="sticky-note"
               onClick={() => openStickyNoteEditor(note.id)} // Make the whole card clickable
+              onDoubleClick={() => openStickyNoteEditor(note.id)} // Trigger editing on double-click
             >
               {expandedNoteId === note.id ? (
                 // Full-page editor for the expanded note
