@@ -1,10 +1,10 @@
-"use client";
-
-import { useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase/firebaseConfig";
-import Link from "next/link";
-import Image from "next/image";
+"use client"; 
+import { useState, useEffect } from "react"; 
+import { signOut } from "firebase/auth"; 
+import { auth } from "../../../firebase/firebaseConfig"; 
+import { useRouter } from "next/router"; 
+import Link from "next/link"; 
+import Image from "next/image"; 
 import styles from "./navigation.module.css";
 
 interface DropdownMenuProps {
@@ -13,24 +13,37 @@ interface DropdownMenuProps {
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ toggleDropdown }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false); // To track if it's client-side rendering
+  const router = useRouter(); // Initialize the router at the top level
+
+  useEffect(() => {
+    setIsClient(true); // Set to true once component is mounted on client side
+  }, []); // Empty dependency array means this runs only once after the first render
 
   const handleButtonClick = () => {
     setIsOpen((prevState) => !prevState);
     toggleDropdown(); // Call the function passed from the parent
   };
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("Logged out successfully!");
-      })
-      .catch((error) => {
-        console.error("Error during logout:", error);
-      });
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      console.log("Logged out successfully!");
+      if (isClient) {
+        router.push("/"); // Redirect to the homepage or login page after logout
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
 
     handleButtonClick(); // Close the dropdown after logout
   };
 
+  if (!isClient) {
+    return null; // Return nothing during SSR
+  }
+
+  
   return (
     <div className={styles.navContainer}> {/* This wraps the entire nav in a floating card */}
       <div className={styles.navheader}>
