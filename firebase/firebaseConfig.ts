@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; // Firebase Authentication
-import { getFirestore } from "firebase/firestore"; // Firebase Firestore
+import { getAuth } from "firebase/auth";
 
-// Firebase configuration using environment variables
+// Initialize Firebase with environment variables
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -15,11 +14,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication
-const auth = getAuth(app);
-
-// Initialize Firestore
-const db = getFirestore(app);
-
-// Export app, auth, and db
-export { app, auth, db };
+// Initialize Firebase Auth
+export const auth = getAuth(app);
