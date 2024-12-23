@@ -27,8 +27,7 @@ export default function Home() {
   const handleGitHubSignIn = async () => {
     const provider = new GithubAuthProvider();
     try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+      await signInWithPopup(auth, provider);
       alert("GitHub login successful!");
       router.push("/000002/townhall"); // Redirect to the townhall page
     } catch (err: unknown) {
@@ -39,7 +38,7 @@ export default function Home() {
       }
     }
   };
-
+  
   return (
     <div>
       <CustomCursor />
