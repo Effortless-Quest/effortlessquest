@@ -4,7 +4,6 @@ import { format } from 'date-fns';
 import './stickynotes.css'; // Optional: Custom styles
 import { Timestamp } from 'firebase/firestore';
 
-// Define the StickyNote type
 type StickyNote = {
   id: string;
   title: string;
@@ -59,14 +58,14 @@ const StickyNotes = () => {
   };
 
   const handleUpdateStickyNote = async () => {
-    if (editedTitle.trim() && editedText.trim()) {
+    if (editedTitle.trim() && editedText.trim() && editingNoteId) {
       setLoading(true);
       try {
-        await updateStickyNoteInFirebase(editingNoteId!, editedTitle, editedText);
-        const notes = await getStickyNotes();
+        await updateStickyNoteInFirebase(editingNoteId, editedTitle, editedText);
+        const notes = await getStickyNotes(); // Refresh list
         setStickyNotes(notes);
-        setEditingNoteId(null);
-        setExpandedNoteId(null); // Close the editor after updating
+        setEditingNoteId(null); // Reset editing ID
+        setExpandedNoteId(null); // Close editor
       } catch (error) {
         console.error("Error updating sticky note:", error);
       } finally {
@@ -74,6 +73,7 @@ const StickyNotes = () => {
       }
     }
   };
+  
 
   const handleDeleteStickyNote = async (id: string) => {
     setLoading(true);
@@ -91,18 +91,24 @@ const StickyNotes = () => {
 
   // Function to handle opening the sticky note in a full-page editor
   const openStickyNoteEditor = (id: string) => {
-    setExpandedNoteId(id);
     const note = stickyNotes.find((note) => note.id === id);
     if (note) {
-      setEditedTitle(note.title);
-      setEditedText(note.text);
+      if (expandedNoteId !== id) { // Avoid resetting when switching between fields
+        setEditedTitle(note.title);
+        setEditedText(note.text);
+      }
+      setEditingNoteId(id); // Set the editing ID
+      setExpandedNoteId(id); // Expand this note
     }
   };
+  
 
   // Close the editor by resetting the expanded note
   const closeStickyNoteEditor = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevents closing when clicking inside the editor
-    setExpandedNoteId(null); // Close the editor when the user clicks close
+    e.stopPropagation(); // Prevent closing when clicking inside the editor
+    setExpandedNoteId(null); // Close the editor view
+    setEditingNoteId(null); // Stop editing
+    // Preserve current states (`editedTitle` and `editedText`) until explicitly saved or discarded
   };
 
   return (
@@ -114,13 +120,13 @@ const StickyNotes = () => {
           <input
             type="text"
             value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
+            onChange={(e) => setNewTitle(e.target.value)} // Updating the state as the user types
             placeholder="Note Title"
             className="sticky-note-title-input"
           />
           <textarea
             value={newNote}
-            onChange={(e) => setNewNote(e.target.value)}
+            onChange={(e) => setNewNote(e.target.value)} // Updating the state as the user types
             placeholder="Write your sticky note here..."
             className="sticky-note-input"
           />
@@ -145,7 +151,6 @@ const StickyNotes = () => {
               key={note.id}
               className="sticky-note"
               onClick={() => openStickyNoteEditor(note.id)} // Make the whole card clickable
-              onDoubleClick={() => openStickyNoteEditor(note.id)} // Trigger editing on double-click
             >
               {expandedNoteId === note.id ? (
                 // Full-page editor for the expanded note
@@ -155,14 +160,14 @@ const StickyNotes = () => {
                     <input
                       type="text"
                       value={editedTitle}
-                      onChange={(e) => setEditedTitle(e.target.value)}
+                      onChange={(e) => setEditedTitle(e.target.value)} // Update the state as the user types
                       className="sticky-note-title-input"
                       placeholder="Edit title"
                     />
                     {/* Note content input below the title */}
                     <textarea
                       value={editedText}
-                      onChange={(e) => setEditedText(e.target.value)} // Update note text
+                      onChange={(e) => setEditedText(e.target.value)} // Update note text as user types
                       className="sticky-note-input"
                       placeholder="Edit your sticky note..."
                     />
