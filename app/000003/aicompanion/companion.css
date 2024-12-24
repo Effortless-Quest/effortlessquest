@@ -9,8 +9,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border: 8px solid transparent;
-    height: 800px; /* Increased height for a longer card */
-    min-height: 600px; /* Ensures consistent card height */
+    height: 500px; /* Increased height for a longer card */
+    min-height: 500px; /* Ensures consistent card height */
     background-color: #1c0e45;
     color: rgb(2, 2, 2);
     transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
@@ -30,8 +30,8 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 700px; /* Set fixed height for the entire chat box */
-    min-height: 500px; /* Set minimum height */
+    height: 400px; /* Set fixed height for the entire chat box */
+    min-height: 400px; /* Set minimum height */
   }
   
 /* Chat history container */
