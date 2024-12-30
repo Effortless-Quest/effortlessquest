@@ -1,75 +1,105 @@
+/* auth.css */
 .home-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-  }
-  
-  .auth-wrapper {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .auth-card {
-    position: relative;
-    background-color: white;
-    padding: 20px 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    box-sizing: border-box;
-    height: 300px;
-  }
-  
-  .auth-card h1, .google-auth-card h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .auth-card input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .auth-card button, .google-signin-btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 50px;
-    background-color:rgb(0, 0, 0);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .auth-card button:hover, .google-signin-btn:hover {
-    background-color: #45a049;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
 
-  .github-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #24292f; /* GitHub dark color */
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 200px;
-  }
-  
-  .github-logo {
-    width: 24px; /* Adjust the size of the logo */
-    height: 24px;
-    margin-right: 10px; /* Add some space between the logo and text */
-  }
-  
+.auth-wrapper {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 20px; /* Space between the cards */
+  align-items: center; /* Center the cards vertically */
+}
+
+.auth-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Ensures both cards have the same max width */
+  width: 100%;
+  text-align: center;
+}
+
+.auth-card h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.google-card {
+  height: 290px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.login-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color:rgb(212, 194, 255);
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.google-btn {
+  background-color:rgb(251, 255, 125);
+  color:rgb(86, 84, 88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px; /* Ensures the Google button matches the email button */
+  width: 100%; /* Matches the width of the email button */
+  border-radius: 5px;
+  margin-top: 60px;
+}
+
+.google-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.email-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.email-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.email-btn:hover {
+  background-color: #2563eb;
+}
